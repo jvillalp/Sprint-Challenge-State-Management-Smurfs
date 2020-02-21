@@ -2,21 +2,22 @@ import React from 'react';
 import {useContext} from 'react';
 import {SmurfContext} from '../contexts/SmurfContext';
 
-import Smurf from './Smurf';
+import SmurfsCard from './SmurfCard';
 
 const Smurfs = () => {
-    const {smurfData, addSmurf} = useContext(SmurfContext);
+    const {smurfs, addSmurf} = useContext(SmurfContext);
     
     return (
         <div>
-            {smurfData.map(smurf => (
-                <Smurf
+            {console.log(smurfs)}
+            {smurfs.map(smurf => 
+                <SmurfsCard
                 smurf={smurf}
                 addSmurf ={addSmurf}
                 />
-            ))}
+            )}
         </div>
     )
 }
 
-export default Smurfs
+export default Smurfs;

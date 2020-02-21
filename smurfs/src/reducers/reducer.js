@@ -1,18 +1,19 @@
-export const initialState = [
-  {
-    item: "Bob",
-    id: Date.now()
-  }
-];
+import {ADD_SMURF} from '../actions/action';
 
-export const reducer = (state, action) => {
+export const initialState = {
+    members: []
+    
+}
+
+export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case "ADD_SMURF":
-      const addSmurf = {
-        item: action.payload,
-        id: Date.now()
-      };
-      return [...state, addSmurf];
+    case ADD_SMURF:{
+        return{
+            ...state,
+            members: [...state.members, action.payload]
+        };
+    }
+      
       default:
             return state;
   }
